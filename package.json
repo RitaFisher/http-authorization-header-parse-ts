@@ -1,0 +1,17 @@
+{
+  "name": "http-authorization-header-parse-ts",
+  "version": "0.1.0",
+  "description": "Decodes an HTTP Authorization header into its scheme token and the opaque credentials half, with helpers for the two common credential shapes.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
