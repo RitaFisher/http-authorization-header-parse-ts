@@ -31,3 +31,10 @@ The `Authorization` header is a scheme token followed by credentials, and the cr
 ## The awkward edge
 
 `parseAuthParams` is not a general CSV parser. It implements the `auth-param` grammar: keys are separated by commas, values are tokens or quoted-strings, and commas or equals signs inside quoted strings are preserved. A quoted string with an unterminated quote raises an error rather than silently consuming the rest of the input. Duplicate keys are returned in order instead of being collapsed, because different schemes disagree on whether the first or last duplicate is authoritative.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
